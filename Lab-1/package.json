@@ -1,0 +1,28 @@
+{
+  "name": "lab-1.1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@react-navigation/material-top-tabs": "^7.1.0",
+    "expo": "~52.0.37",
+    "expo-status-bar": "~2.0.1",
+    "react": "18.3.1",
+    "react-native": "0.76.7",
+    "react-native-fast-image": "^8.6.3",
+    "react-native-gesture-handler": "^2.24.0",
+    "react-native-reanimated": "^3.17.0",
+    "react-native-screens": "^4.9.1",
+    "react-native-swipe-gestures": "^1.0.5",
+    "react-native-tab-view": "^4.0.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0"
+  },
+  "private": true
+}
