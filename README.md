@@ -2,7 +2,7 @@
 
 ### Store
 #### Світла тема
-![Store - Світла тема](./images/Store-light.jpg)
+![Store - Світла тема]([./images/Store-light.jpg](https://github.com/Oleg-Ischuk/MobileLabsRN2025/blob/lab-2/Lab-2/screen_pages/screen_page_store_light.jpg))
 
 #### Темна тема
 ![Store - Темна тема](https://github.com/Oleg-Ischuk/MobileLabsRN2025/blob/lab-2/Lab-2/screen_pages/screen_page_store_dark.jpg)
