@@ -163,7 +163,7 @@ const ProfileScreen = () => {
           <Avatar source={require("../assets/icons/big-my-logo.png")} />
           <OnlineIndicator />
         </AvatarContainer>
-        <ProfileName>Oleg Ischuk</ProfileName>
+        <ProfileName>Oleg Ishchuk</ProfileName>
         <ProfileStatus>IPZ-23-1</ProfileStatus>
       </ProfileHeader>
 

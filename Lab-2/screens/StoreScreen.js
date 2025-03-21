@@ -115,7 +115,7 @@ const PlatformIconContainer = styled.View`
 const PlatformIcon = styled.Image`
   width: 16.5px;
   height: 16.5px;
-  tint-color: white;
+  tint-color: ${(props) => (props.theme.isDark ? "white" : props.theme.text)};
 `;
 
 const CategoryScrollView = styled.ScrollView`
