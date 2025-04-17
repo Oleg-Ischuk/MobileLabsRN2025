@@ -1,8 +1,15 @@
-import { registerRootComponent } from 'expo';
+import { registerRootComponent } from "expo";
+import App from "./App";
 
-import App from './App';
+// Initialize OneSignal before the app starts
+const initOneSignal = async () => {
+  try {
+    const OneSignal = require("react-native-onesignal").default;
+    console.log("OneSignal loaded in index.js");
+  } catch (error) {
+    console.error("Failed to load OneSignal in index.js:", error);
+  }
+};
 
-// registerRootComponent calls AppRegistry.registerComponent('main', () => App);
-// It also ensures that whether you load the app in Expo Go or in a native build,
-// the environment is set up appropriately
+initOneSignal();
 registerRootComponent(App);

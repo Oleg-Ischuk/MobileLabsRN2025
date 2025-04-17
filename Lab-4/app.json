@@ -27,10 +27,12 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "onesignal-expo-plugin",
-      {
-        "mode": "development"
-      }
+      [
+        "onesignal-expo-plugin",
+        {
+          "mode": "development"
+        }
+      ]
     ]
   }
 }

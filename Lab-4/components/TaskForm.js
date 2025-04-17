@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import {
-  StyleSheet,
   View,
   TextInput,
+  StyleSheet,
   Text,
   TouchableOpacity,
 } from "react-native";
@@ -15,24 +15,27 @@ const TaskForm = ({ onAddTask }) => {
   const [description, setDescription] = useState("");
   const [reminderTime, setReminderTime] = useState(new Date());
   const [datePickerOpen, setDatePickerOpen] = useState(false);
-  const [error, setError] = useState("");
 
   const handleSubmit = () => {
     if (!title.trim()) {
-      setError("Please enter a task title");
+      alert("Please enter a task title");
       return;
     }
+
     const newTask = {
       title,
       description,
-      reminderTime,
+      reminderTime: reminderTime.toISOString(),
       completed: false,
+      createdAt: new Date().toISOString(),
     };
+
     onAddTask(newTask);
+
+    // Reset form
     setTitle("");
     setDescription("");
     setReminderTime(new Date());
-    setError("");
   };
 
   return (
@@ -40,18 +43,19 @@ const TaskForm = ({ onAddTask }) => {
       <Text style={styles.label}>Task Title</Text>
       <TextInput
         style={styles.input}
+        placeholder="Enter task title"
         value={title}
         onChangeText={setTitle}
-        placeholder="Enter task title"
       />
 
       <Text style={styles.label}>Description</Text>
       <TextInput
         style={[styles.input, styles.textArea]}
+        placeholder="Enter task description"
         value={description}
         onChangeText={setDescription}
-        placeholder="Enter task description"
         multiline
+        numberOfLines={3}
       />
 
       <Text style={styles.label}>Reminder Time</Text>
@@ -64,6 +68,7 @@ const TaskForm = ({ onAddTask }) => {
         </Text>
       </TouchableOpacity>
 
+      {/* Виправлений DatePicker */}
       <DatePicker
         modal
         open={datePickerOpen}
@@ -76,9 +81,8 @@ const TaskForm = ({ onAddTask }) => {
           setDatePickerOpen(false);
         }}
         minimumDate={new Date()}
+        androidVariant="nativeAndroid"
       />
-
-      {error ? <Text style={styles.errorText}>{error}</Text> : null}
 
       <TouchableOpacity style={styles.addButton} onPress={handleSubmit}>
         <Text style={styles.addButtonText}>Add Task</Text>
@@ -89,28 +93,28 @@ const TaskForm = ({ onAddTask }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#fff",
-    padding: 16,
-    margin: 16,
-    borderRadius: 8,
+    padding: 20,
+    backgroundColor: "white",
+    borderRadius: 10,
+    margin: 10,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 2,
+    elevation: 3,
   },
   label: {
     fontSize: 16,
     fontWeight: "600",
-    marginBottom: 8,
+    marginBottom: 5,
     color: "#333",
   },
   input: {
     borderWidth: 1,
     borderColor: "#ddd",
-    borderRadius: 4,
-    padding: 12,
-    marginBottom: 16,
+    borderRadius: 5,
+    padding: 10,
+    marginBottom: 15,
     fontSize: 16,
   },
   textArea: {
@@ -118,29 +122,27 @@ const styles = StyleSheet.create({
     textAlignVertical: "top",
   },
   dateButton: {
-    backgroundColor: "#f0f0f0",
+    borderWidth: 1,
+    borderColor: "#ddd",
+    borderRadius: 5,
     padding: 12,
-    borderRadius: 4,
-    marginBottom: 16,
+    marginBottom: 20,
+    backgroundColor: "#f9f9f9",
   },
   dateButtonText: {
     fontSize: 16,
     color: "#333",
   },
   addButton: {
-    backgroundColor: "#4a6ea9",
-    padding: 16,
-    borderRadius: 4,
+    backgroundColor: "#4a6da7",
+    padding: 15,
+    borderRadius: 5,
     alignItems: "center",
   },
   addButtonText: {
-    color: "#fff",
+    color: "white",
     fontSize: 16,
     fontWeight: "bold",
-  },
-  errorText: {
-    color: "red",
-    marginBottom: 10,
   },
 });
 
