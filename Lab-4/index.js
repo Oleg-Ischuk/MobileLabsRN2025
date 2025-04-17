@@ -1,7 +1,6 @@
 import { registerRootComponent } from "expo";
 import App from "./App";
 
-// Initialize OneSignal before the app starts
 const initOneSignal = async () => {
   try {
     const OneSignal = require("react-native-onesignal").default;
