@@ -68,7 +68,6 @@ const TaskForm = ({ onAddTask }) => {
         </Text>
       </TouchableOpacity>
 
-      {/* Виправлений DatePicker */}
       <DatePicker
         modal
         open={datePickerOpen}
