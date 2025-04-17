@@ -7,10 +7,11 @@ import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
 
 // Імпортуємо OneSignal правильно
-import OneSignal from "react-native-onesignal";
+import { OneSignal } from "react-native-onesignal";
 
 // Замініть на ваші реальні ключі
 const ONESIGNAL_APP_ID = "18953dae-c615-48c7-b87c-81bd3c8e767c";
+const USER_EXTERNAL_ID = "test_external_id";
 const ONESIGNAL_REST_API_KEY =
   "os_v2_app_dckt3lwgcvempod4qg6tzdtwpq2rmaqn5wdehcf37i7rvfgiplbadxtawiktyacjr6iqtsbm5bvijguo7442growmloc2ssstoi33jq";
 
@@ -25,9 +26,9 @@ export default function App() {
         if (OneSignal) {
           console.log("Initializing OneSignal...");
           // Встановлюємо App ID
-          OneSignal.setAppId(ONESIGNAL_APP_ID);
+          OneSignal.initialize(ONESIGNAL_APP_ID);
           // Запитуємо дозвіл на сповіщення
-          OneSignal.promptForPushNotificationsWithUserResponse();
+          OneSignal.Notifications.requestPermission(true);
           console.log("OneSignal initialized successfully");
         } else {
           console.error("OneSignal is not available");
@@ -112,24 +113,23 @@ export default function App() {
         return;
       }
 
+      // TODO: Refactor – move OneSignal authentication and subscription logic to a dedicated auth handler
+      OneSignal.login(USER_EXTERNAL_ID);
+      OneSignal.User.pushSubscription.optIn();
+
       const reminderTime = new Date(task.reminderTime).getTime();
 
-      // Отримуємо ID пристрою
-      let deviceState = null;
+      // Отримуємо OneSignal External User ID
+      let userId = null;
+
       try {
-        deviceState = await OneSignal.getDeviceState();
+        userId = await OneSignal.User.getExternalId();
       } catch (error) {
-        console.error("Failed to get device state:", error);
+        console.error("Failed to get OneSignal External User ID:", error);
         return;
       }
 
-      if (!deviceState || !deviceState.userId) {
-        console.error("No OneSignal user ID available");
-        return;
-      }
-
-      const userId = deviceState.userId;
-      console.log("OneSignal User ID:", userId);
+      console.log("OneSignal External User ID:", userId);
 
       // Створюємо об'єкт сповіщення
       const notificationObj = {
