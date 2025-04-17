@@ -9,7 +9,6 @@ import TaskList from "./components/TaskList";
 // Імпортуємо OneSignal правильно
 import OneSignal from "react-native-onesignal";
 
-// Замініть на ваші реальні ключі
 const ONESIGNAL_APP_ID = "18953dae-c615-48c7-b87c-81bd3c8e767c";
 const ONESIGNAL_REST_API_KEY =
   "os_v2_app_dckt3lwgcvempod4qg6tzdtwpq2rmaqn5wdehcf37i7rvfgiplbadxtawiktyacjr6iqtsbm5bvijguo7442growmloc2ssstoi33jq";
