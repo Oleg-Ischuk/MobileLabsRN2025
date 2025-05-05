@@ -10,11 +10,11 @@
 
 ### Створення папки.
 
-![Форма стоврення папки](https://github.com/Oleg-Ischuk/MobileLabsRN2025/blob/lab-5/Lab-5/images/photo_3_2025-05-03_08-43-51.jpg)
+![Форма стоврення папки](https://github.com/Oleg-Ischuk/MobileLabsRN2025/blob/lab-5/Lab-5/images/photo_3_2025-05-05_09-37-41.jpg)
 
 ### Створення файлу.
 
-![Форма стоврення файлу](https://github.com/Oleg-Ischuk/MobileLabsRN2025/blob/lab-5/Lab-5/images/photo_4_2025-05-03_08-43-51.jpg)
+![Форма стоврення файлу](https://github.com/Oleg-Ischuk/MobileLabsRN2025/blob/lab-5/Lab-5/images/photo_4_2025-05-05_09-37-41.jpg)
 
 ### Інформація про файл.
 
